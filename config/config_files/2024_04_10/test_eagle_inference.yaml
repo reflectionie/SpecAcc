@@ -1,0 +1,27 @@
+# database:
+#   host: localhost
+#   user: user
+#   password: pass
+#   database: mydatabase
+
+speculative_method: eagle
+base_model:
+    base_model_path: lmsys/vicuna-7b-v1.3
+    base_model_name: vicuna
+speculative_model:
+    speculative_model_path: yuhuili/EAGLE-Vicuna-7B-v1.3
+    speculative_model_name: eagle
+    load_in_8bit: False
+    load_in_4bit: False
+conv:
+    template: xxx
+    system_prompt: xxx
+    user_message: "1 + 1 + ?"
+
+
+question_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_bench/question.jsonl
+question_begin: None
+question_end: None
+
+answer_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_bench/eagle_answer_test.jsonl
+

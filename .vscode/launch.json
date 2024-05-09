@@ -1,0 +1,289 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+    
+
+
+
+    
+
+
+
+
+
+    
+    
+
+    
+    
+
+
+
+        {
+            "name": "24_02_16_debug_yaml",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/inference/inference.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_02_16/test.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_02_17_debug_medusa",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/inference/inference.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_02_17/test_medusa_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_02_17_debug_eagle",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/inference/inference.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_02_17/test.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_02_18_debug_lookahead",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/inference/inference.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_02_18/test_lookahead_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_02_18_debug_eagle",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/inference/inference.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_02_18/test.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_02_18_debug_auto_regressive_greedy",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/inference/inference.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_02_18/test_auto_regressive_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_02_18_debug_medusa",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/inference/inference.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_02_18/test_medusa_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_04_06_debug_hydra",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/inference/inference.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_04_06/test_hydra_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        
+        {
+            "name": "24_04_08_debug_medusa_ids",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval/spec_bench/generate_eval_results.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_02_18/test_medusa_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+
+        {
+            "name": "24_04_08_debug_hydra_ids",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval/spec_bench/generate_eval_results.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_04_08/test_hydra_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_04_09_debug_medusa_ids",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval/spec_bench/generate_eval_results.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_04_09/test_medusa_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_04_10_debug_hydra_ids",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval/spec_bench/generate_eval_results.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_04_10/test_hydra_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_04_11_debug_eagle_ids",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval/spec_bench/generate_eval_results.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_04_13/test_eagle_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_04_14_debug_medusa_ids_input_test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval/spec_bench/generate_eval_results.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_04_13/test_medusa_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+
+        {
+            "name": "24_04_14_debug_hydra_ids_input_test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval/spec_bench/generate_eval_results.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_04_13/test_hydra_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+        {
+            "name": "24_05_08_debug_ensemble_hydra_ids_input_test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/eval/spec_bench/generate_eval_results.py",
+            "args": [
+                "--config",
+                "${workspaceFolder}/config/config_files/2024_04_13/test_ensemble_hydra_inference.yaml"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        },
+            
+        
+        
+    ]
+}

@@ -1,0 +1,19 @@
+speculative_method: eagle
+
+tokenizer: lmsys/vicuna-7b-v1.3
+base_model:
+    base_model_path: lmsys/vicuna-7b-v1.3
+    base_model_name: vicuna
+speculative_model:
+    speculative_model_path: yuhuili/EAGLE-Vicuna-7B-v1.3
+    speculative_model_name: eagle
+    load_in_8bit: False
+    load_in_4bit: False
+
+
+question_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_bench/question remove.jsonl
+question_begin: None
+question_end: None
+
+answer_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_bench/2024_04_11/eagle_answer.jsonl
+
