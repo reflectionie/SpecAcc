@@ -17,5 +17,5 @@ question_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_be
 question_begin: None
 question_end: None
 
-answer_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_bench/2024_04_11/hydra_answer.jsonl
+answer_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_bench/2024_05_11/hydra_ensemble_answer.jsonl
 

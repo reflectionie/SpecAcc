@@ -7,9 +7,9 @@ base_model:
 speculative_model:
     speculative_model_path: ankner/hydra-vicuna-7b-v1.3
     speculative_model_name: hydra
-    load_in_8bit: False
-    load_in_4bit: False
-    load_in_4bit: False
+    load_in_8bit: True
+    load_in_4bit: True
+
 
 
 
@@ -17,5 +17,5 @@ question_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_be
 question_begin: None
 question_end: None
 
-answer_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_bench/2024_04_11/hydra_answer.jsonl
+answer_file: /net/papilio/storage7/tingyuan/llm_inference/SpecAcc/eval/spec_bench/2024_04_11/hydra_answer_test.jsonl
 

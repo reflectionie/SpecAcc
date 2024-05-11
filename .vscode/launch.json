@@ -4,6 +4,9 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
+
+
 
     
 
@@ -276,7 +279,8 @@
                 "${workspaceFolder}/config/config_files/2024_04_13/test_ensemble_hydra_inference.yaml"
             ],
             "env": {
-                "PYTHONPATH": "${workspaceFolder}"
+                "PYTHONPATH": "${workspaceFolder}",
+                // "CUDA_VISIBLE_DEVICES": "-1",
             },
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",

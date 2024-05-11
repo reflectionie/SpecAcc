@@ -1151,17 +1151,20 @@ def proposal(ensemble_model,
     children_to_expand_per_head = ensemble_model[0].hydra_buffers["children_to_expand_per_head"]
     retrieve_indices = ensemble_model[0].hydra_buffers["retrieve_indices"]
 
-    # Build prefix through attn layer
-    # Fixed to only one layer currently
-
     candidates_ensemble = []
     candidates_embeddings_ensemble = []
 
-    ensemble_model[0].past_key_values = ensemble_model[0].past_key_values[-1:]
-    past_seq_len = ensemble_model[0].past_key_values[0][0].current_length
+    # ensemble_model[0].past_key_values = ensemble_model[0].past_key_values[-1:]
+
+    # Build prefix through attn layer
+    # Fixed to only one layer currently
+    past_key_values = ensemble_model[0].past_key_values
+    past_key_values = past_key_values[-1:]
+    past_seq_len = past_key_values[0][0].current_length
     seq_len = past_seq_len + base_hidden_states.shape[1]
     position_ids = torch.arange(
         past_seq_len, seq_len, device=input_logits.device).unsqueeze(0)
+
     for idx, hydra_module in enumerate(ensemble_model):
         # hydra_module.past_key_values = hydra_module.past_key_values[-1:]
         # past_seq_len = hydra_module.past_key_values[0][0].current_length
@@ -1171,7 +1174,7 @@ def proposal(ensemble_model,
         prefix_embedding = hydra_module.hydra_head.prefix_embeding_layer(
             inputs_embeds=base_hidden_states,
             attention_mask=None,  # Might need to change eventually
-            past_key_values=hydra_module.past_key_values,
+            past_key_values=past_key_values,
             position_ids=position_ids,
         )[0]
 
@@ -1197,6 +1200,7 @@ def proposal(ensemble_model,
                 candidates_embeddings_ensemble[idx])
             hydra_preds = hydra_module.hydra_head.hydra_lm_head[head_idx](
                 hydra_hidden_state)
+            hydra_preds = F.softmax(hydra_preds, dim=-1)
             hydra_preds_ensemble.append(hydra_preds)
 
         next_head_embeddings = []
@@ -1262,7 +1266,11 @@ def ensemble_hydra_generate_reflectio(
     temperature=0,
     max_new_tokens=512,
     hydra_choices=mc_sim_7b_63,
-    max_steps=512
+    max_steps=512,
+    posterior_threshold=0.09,  # threshold validation of Hydra output
+    # another threshold hyperparameter, recommended to be sqrt(posterior_threshold)
+    posterior_alpha=0.3,
+    max_length=2048,
 ):
 
     base_model = model['base_model']
@@ -1353,9 +1361,9 @@ def ensemble_hydra_generate_reflectio(
     else:
         hidden_states = outputs[1][-(
             ensemble_model[0].hidden_state_offset + 1)].clone()
-        
+
     base_model.model.hydra_mask = ensemble_model[0].hydra_buffers["hydra_attn_mask"]
-    
+
     if ensemble_model[0].hydra_head_arch == "cross-attn":
         # 这里一定是false，所以没有改
         model.hydra_head.proposal_hydra_masks = ensemble_model[
@@ -1418,16 +1426,15 @@ def ensemble_hydra_generate_reflectio(
             new_token,
             past_key_values_data,
             current_length_data,
-            self.hydra_head_arch,
+            ensemble_model[0].hydra_head_arch,
         )
 
         accept_token_length.append(int(accept_length))
 
-        if self.tokenizer.eos_token_id in input_ids[0, input_len:].tolist():
+        if ensemble_model[0].tokenizer.eos_token_id in input_ids[0, input_len:].tolist():
             return input_ids, accept_token_length
         if new_token > max_new_tokens:
             return input_ids, accept_token_length
         if input_ids.shape[1] > max_length:
             return input_ids, accept_token_length
 
-    pass

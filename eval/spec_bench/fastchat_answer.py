@@ -48,6 +48,7 @@ def get_eval_results(
             conv.append_message(conv.roles[1], None)
             prompt = conv.get_prompt()
             inputs = tokenizer([prompt], return_tensors="pt").to("cuda")
+            # inputs = tokenizer([prompt], return_tensors="pt")
             input_ids = inputs.input_ids
             output_ids, time_elapsed, accept_token_length = generate_single_output_ids(
                 model=speculative_model,
